@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="header__style.css" />
+    <link rel="stylesheet" href="state__style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8bdc7d2339.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+    <title>Youtube Mobile</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="logo">
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <span class="title">Youtube</span>
+      </div>
+      <ul class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-ellipsis-v"></i>
+      </ul>
+    </header>
+
+    <!-- Video Player -->
+    <section class="player">
+      <video controls src="video.mp4"></video>
+    </section>
+
+    <div class="infoAndUpNext">
+      <!-- Infomation -->
+      <section class="info">
+        <div class="metadata">
+          <ul class="hashtags">
+            <li>#TWICE</li>
+            <li>#YESorYES</li>
+            <li>트둥이</li>
+          </ul>
+          <div class="titleAndButton">
+            <span class="title clamp"
+              >HELLO TWICE "YES or YES" M/V TWICE "YES or YES" M/V TWICE "YES or
+              YES" M/V TWICE "YES or YES" M/V TWICE "YES or YES" M/V TWICE "YES
+              or YES" M/V TWICE "YES or YES" M/V TWICE "YES or YES" M/V TWICE
+              "YES or YES" M/V</span
+            >
+            <button class="moreBtn">
+              <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+          <span class="views">1M views 1 month ago</span>
+        </div>
+
+        <!-- Button Actions -->
+        <ul class="actions">
+          <li>
+            <button>
+              <i class="active fas fa-thumbs-up"></i><span>1K</span>
+            </button>
+          </li>
+          <li>
+            <button><i class="fas fa-thumbs-down"></i><span>0</span></button>
+          </li>
+          <li>
+            <button><i class="fas fa-share"></i><span>Share</span></button>
+          </li>
+          <li>
+            <button><i class="fas fa-plus"></i><span>Save</span></button>
+          </li>
+          <li>
+            <button><i class="fas fa-flag"></i><span>Report</span></button>
+          </li>
+        </ul>
+
+        <!-- Channel description -->
+        <div class="channel">
+          <div class="metadata">
+            <img src="image\twice.jpg" alt="" />
+            <div class="info">
+              <span class="name">TWICE</span>
+              <span class="subscribers">1M Subscribers</span>
+            </div>
+          </div>
+          <button class="subscribe">subscribe</button>
+        </div>
+      </section>
+
+      <!-- UpNext -->
+      <section class="upNext">
+        <span class="title">Up next</span>
+        <ul>
+          <li class="item">
+            <div class="img"><img src="image\twice1.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title">TWICE FELL SPECIAL</span>
+              <span class="name">TWICE</span>
+              <span class="views">82K Views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li class="item">
+            <div class="img"><img src="image\twice2.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title">TWICE SIGNAL</span>
+              <span class="name">TWICE</span>
+              <span class="views">80K Views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li class="item">
+            <div class="img"><img src="image\twice3.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title">TWICE CHEER UP</span>
+              <span class="name">TWICE</span>
+              <span class="views">82K Views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- <video controls width="250" class="video">
+      <source src="/video.mp4" type="video/webm" />
+      <source src="/video.mp4" type="video/mp4" />
+      Sorry, your browser doesn't support embedded videos.
+    </video> -->
+
+    <!-- <div class="state">
+      <div class="state__meta">
+        <ul class="state__meta__hash">
+          <li>#DreamCoding</li>
+          <li>#DreamCoders</li>
+          <li>#Eile</li>
+        </ul>
+
+        <ul class="state__meta__title">
+          <li>
+            Clone coding Youtube Mobile Website 유투브 모바일 웹사이트 따라
+            만들기 | 프론테 엔드 개발자 입문편 : HTML, CSS, JavaScript
+            드림코딩과 함께하는 프론트엔드 실전 입문편이다.
+          </li>
+          <li><i class="fas fa-caret-down"></i></li>
+        </ul>
+
+        <ul class="state__meta__time">
+          <li>1M views</li>
+          <li>1month ago</li>
+        </ul>
+      </div>
+
+      <div class="state__btn">
+        <ul class="state__btn__thumbsup">
+          <li><i class="fas fa-thumbs-up"></i></li>
+          <li>1K</li>
+        </ul>
+        <ul class="state__btn__thumbsdown">
+          <li><i class="fas fa-thumbs-down"></i></li>
+          <li>3</li>
+        </ul>
+        <ul class="state__btn__share">
+          <li><i class="fas fa-share"></i></li>
+          <li>share</li>
+        </ul>
+
+        <ul class="state__btn__save">
+          <li><i class="fas fa-plus"></i></li>
+          <li>save</li>
+        </ul>
+        <ul class="state__btn__report">
+          <li><i class="fas fa-flag"></i></li>
+          <li>Report</li>
+        </ul>
+      </div>
+
+      <div class="state__profile">
+        <ul class="state__profile__name">
+          <li>사진</li>
+          <li>드림코딩 by 엘리</li>
+          <li>1M subscribers</li>
+        </ul>
+
+        <ul class="state__profile__subscribeBtn">
+          <li>SUBSCRIBE</li>
+        </ul>
+      </div>
+    </div> -->
+  </body>
+</html>
