@@ -1,18 +1,37 @@
-class Student {
-  constructor(name, age, enrolled, score) {
-    this.name = name;
-    this.age = age;
-    this.enrolled = enrolled;
-    this.score = score;
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+class UserStorage {
+  async loginUser(id, password) {
+    await delay(1000);
+    if (
+      (id === "ellie" && password === "dream") ||
+      (id === "coder" && password === "academy")
+    ) {
+      return id;
+    } else {
+      new Error("not found");
+    }
+  }
+
+  async getRole(user) {
+    await delay(1000);
+    if (user === "ellie") {
+      return { name: "ellie", role: "admin" };
+    } else {
+      new Error("no access");
+    }
+  }
+
+  async login(id, password) {
+    const user = await this.loginUser(id, password);
+    return this.getRole(user);
   }
 }
-const students = [
-  new Student("A", 29, true, 45),
-  new Student("B", 28, false, 80),
-  new Student("C", 30, true, 90),
-  new Student("D", 40, false, 66),
-  new Student("E", 18, true, 88),
-];
 
-const a = students.find((student) => student.score === 90);
-console.log(a);
+const userStorage = new UserStorage();
+const id = prompt("enter your id");
+const password = prompt("enter your pwd");
+
+userStorage.login(id, password).catch(alert).then(console.log);

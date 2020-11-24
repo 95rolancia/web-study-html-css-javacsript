@@ -1,3 +1,11 @@
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 button {
   outline: none;
   background-color: transparent;
@@ -22,51 +30,50 @@ body {
   margin: 1em 2em;
 }
 
-.shopping__header .logo:hover,
-.btn:hover {
+.shopping__header .logo:hover {
   transform: scale(1.1);
 }
 
 .shopping__header .btns {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 0;
+  align-items: center;
 }
 
-.shopping__header .btns li {
-  list-style: none;
-}
-
-.shopping__header .btns .btn {
+.shopping__header .btns li button {
   margin-right: 0.5em;
 }
 
-.shopping__header .btns .btn.shirt img,
-.shopping__header .btns .btn.pants img,
-.shopping__header .btns .btn.skirt img {
+.shopping__header .btns li button:hover {
+  transform: scale(1.1);
+}
+
+.shopping__header .btns .shirt img,
+.shopping__header .btns .pants img,
+.shopping__header .btns .skirt img {
   width: 50px;
   height: 50px;
 }
 
-.shopping__header .btns .btn.blue,
-.shopping__header .btns .btn.yellow,
-.shopping__header .btns .btn.pink {
+.blue,
+.yellow,
+.pink {
   border-radius: 10px;
   font-size: 1rem;
   width: 60px;
   height: 40px;
 }
 
-.shopping__header .btns .btn.blue {
+.blue {
   background-color: lightblue;
 }
 
-.shopping__header .btns .btn.yellow {
+.yellow {
   background-color: yellow;
 }
 
-.shopping__header .btns .btn.pink {
+.pink {
   background-color: pink;
 }
 
@@ -75,11 +82,11 @@ body {
 }
 
 .items {
-  width: 90%;
-  height: 60%;
+  width: 25em;
+  height: 25em;
   margin: 0 auto;
-  padding-left: 0;
   overflow: auto;
+  /* background-color: whitesmoke; */
 }
 
 .items .item {
@@ -91,15 +98,19 @@ body {
   border-radius: 0.5em;
 }
 
-.items .item img {
-  width: 3em;
-  height: 3em;
-}
-
 .items .item * {
   margin-right: 1em;
 }
 
-.items .item.invisible {
+.items .item {
   display: none;
+}
+
+.items .item.visible {
+  display: flex;
+}
+
+.items .item img {
+  width: 3em;
+  height: 3em;
 }

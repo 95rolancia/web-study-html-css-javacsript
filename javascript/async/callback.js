@@ -20,7 +20,7 @@ function printWithDealy(print, timeout) {
   setTimeout(print, timeout);
 }
 
-printImmediately(() => console.log("async callback"), 2000);
+printWithDealy(() => console.log("async callback"), 2000);
 
 // Callback Hell example
 class UserStorage {

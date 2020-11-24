@@ -40,6 +40,17 @@ function pickFruits1() {
   });
 }
 
+// escape from callback hell
+async function pickFruits1() {
+  try {
+  const apple = await getApple();
+  const banana = await getBanana();
+  } catch() {
+    
+  }
+  return `${apple} + ${banana}`;
+}
+
 async function pickFruits2() {
   /*
   const apple = await getApple();

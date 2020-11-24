@@ -1,7 +1,3 @@
-/* 변수는 한 줄에 하나 작성하기!! 
-   
-*/
-
 // Fetch the items from the JSON file
 function loadItems() {
   return fetch("data/data.json")
@@ -9,47 +5,62 @@ function loadItems() {
     .then((json) => json.items);
 }
 
-// Update the list with the given items
-function displayItems(items) {
-  const container = document.querySelector(".items");
-  container.innerHTML = items.map((item) => createHTMLString(item)).join("");
+// Create item from the given data item
+function createElement(item) {
+  const img = document.createElement("img");
+  img.setAttribute("class", "thumbnail");
+  img.setAttribute("src", item.url);
+
+  const span = document.createElement("span");
+  span.setAttribute("class", "description");
+  span.innerText = `${item.sex}, ${item.size}`;
+  const li = document.createElement("li");
+  li.setAttribute("class", "item");
+  li.setAttribute("data-type", item.type);
+  li.setAttribute("data-color", item.color);
+  li.append(img);
+  li.append(span);
+  return li;
 }
 
-// Create HTML list item from the given data tiem
-function createHTMLString(item) {
-  return `
-    <li class="item">
-        <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
-        <span class="item__description">${item.gender}, ${item.size}</span>
-    </li>
-    `;
-}
-
-function onButtonClick(event, items) {
-  const dataset = event.target.dataset;
-  const key = dataset.key;
-  const value = dataset.value;
+// Handle button click
+function onBtnClick(event, items) {
+  const target = event.target;
+  const key = target.dataset.key;
+  const value = target.dataset.value;
   if (key == null || value == null) {
     return;
   }
-  console.log(items[key]);
-  displayItems(items.filter((item) => item[key] === value));
-  //console.log(event.target.dataset.key);
-  //console.log(event.target.dataset.value);
+  updateItems(items, key, value);
 }
 
-function setEventListeners(items) {
-  const logo = document.querySelector(".logo");
-  const buttons = document.querySelector(".buttons");
-  logo.addEventListener("click", () => displayItems(items));
-  buttons.addEventListener("click", () => onButtonClick(event, items));
+function onLogoClick(items) {
+  items.forEach((item) => {
+    if (item.classList.contains("invisible")) {
+      item.classList.remove("invisible");
+    }
+  });
 }
 
-// main
+// Make the items matching {key: value} invisible.
+function updateItems(items, key, value) {
+  items.forEach((item) => {
+    if (item.dataset[key] === value) {
+      item.classList.remove("invisible");
+    } else {
+      item.classList.add("invisible");
+    }
+  });
+}
+
 loadItems()
   .then((items) => {
-    //console.log(items);
-    displayItems(items);
-    setEventListeners(items);
+    const elements = items.map(createElement);
+    const container = document.querySelector(".items");
+    container.append(...elements);
+    const btns = document.querySelector(".btns");
+    const logo = document.querySelector(".logo");
+    btns.addEventListener("click", (event) => onBtnClick(event, elements));
+    logo.addEventListener("click", () => onLogoClick(elements));
   })
   .catch(console.log);
